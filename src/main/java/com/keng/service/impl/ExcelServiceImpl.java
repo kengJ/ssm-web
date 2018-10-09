@@ -29,22 +29,22 @@ public class ExcelServiceImpl implements ExcelService {
     @Autowired
     private ExcelLogDao excelLogDao;
 
+    @Override
     public ExcelLog findExcelLogAndNoUse(String id) {
-        ExcelLog excelLog = excelLogDao.findExcelLogAndNoUse(id);
+        return excelLogDao.findExcelLogAndNoUse(id);
+    }
+    @Override
+    public ExcelLog insertLog(Map<String, Object> excelmap) {
+        ExcelLog excelLog = new ExcelLog();
+        excelLog.setAction((String) excelmap.get("action"));
+        excelLog.setData((String)excelmap.get("data"));
+        excelLog.setDate((String)excelmap.get("date"));
+        excelLog.setName((String)excelmap.get("name"));
+        excelLog.setParms((String)excelmap.get("parms"));
+        excelLogDao.insertLog(excelLog);
         return excelLog;
     }
-
-    public ExcelLog insertLog(Map<String, Object> excelmap) {
-        ExcelLog ExcelLog = new ExcelLog();
-        ExcelLog.setAction((String) excelmap.get("action"));
-        ExcelLog.setData((String)excelmap.get("data"));
-        ExcelLog.setDate((String)excelmap.get("date"));
-        ExcelLog.setName((String)excelmap.get("name"));
-        ExcelLog.setParms((String)excelmap.get("parms"));
-        excelLogDao.insertLog(ExcelLog);
-        return ExcelLog;
-    }
-
+    @Override
     public void updateUseLog(String id) {
         excelLogDao.updateUseLog(id);
     }

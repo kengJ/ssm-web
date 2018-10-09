@@ -24,6 +24,7 @@ public class TxServiceImpl implements TxService {
     @Autowired
     private DbService dbService;
 
+    @Override
     public Map<String, Object> findPersionMessage(String code) {
         DbMessage dbMessage = dbService.findByName("tx").get(0);
         DbHelper dbHelper = new DbHelper(dbMessage);
@@ -35,6 +36,7 @@ public class TxServiceImpl implements TxService {
         return dbHelper.findData(sql);
     }
 
+    @Override
     public Map<String, Object> findPersionMessageByDeptCode(String deptCode) {
         DbMessage dbMessage = dbService.findByName("tx").get(0);
         DbHelper dbHelper = new DbHelper(dbMessage);
@@ -46,6 +48,7 @@ public class TxServiceImpl implements TxService {
         return dbHelper.findData(sql);
     }
 
+    @Override
     public Map<String, Object> findPersionMessageByCode(List<String> codelist) {
         DbMessage dbMessage = dbService.findByName("tx").get(0);
         DbHelper dbHelper = new DbHelper(dbMessage);
