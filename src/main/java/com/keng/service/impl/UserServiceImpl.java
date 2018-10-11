@@ -25,39 +25,51 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Override
     public List<User> queryAll() {
         return userDao.queryAll();
     }
-
+    @Override
     public User queryForLogin(User user) {
         return userDao.queryForLogin(user);
     }
-
+    @Override
     public List<User> pageQueryData(Map<String, Object> map) {
         return userDao.pageQueryData(map);
     }
-
+    @Override
     public int pageQueryCount(Map<String, Object> map) {
         return userDao.pageQueryCount(map);
     }
-
+    @Override
     public void insertUser(User user) {
         userDao.insertUser(user);
     }
-
+    @Override
     public User queryById(String id) {
         return userDao.queryById(id);
     }
-
+    @Override
     public void updateUser(User user) {
         userDao.updateUser(user);
     }
-
+    @Override
     public void delete(String id) {
         userDao.delete(id);
     }
-
+    @Override
     public void deleteUsers(Map<String, Object> map) {
         userDao.deleteUsers(map);
+    }
+
+    @Override
+    public void deleteUserRoles(Map<String, Object> map) {
+        userDao.deleteUserRoles(map);
+    }
+
+    @Override
+    public void insertUserRoles(Map<String, Object> map) {
+        System.out.println(map);
+        userDao.insertUserRoles(map);
     }
 }

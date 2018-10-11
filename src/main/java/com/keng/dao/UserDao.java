@@ -2,7 +2,6 @@ package com.keng.dao;
 
 import com.keng.model.User;
 import org.apache.ibatis.annotations.Select;
-
 import java.util.List;
 import java.util.Map;
 
@@ -72,4 +71,16 @@ public interface UserDao {
      * @param map 参数
      */
     void deleteUsers(Map<String, Object> map);
+
+    /**
+     * 增加用户权限
+     * @param map 参数
+     */
+    void insertUserRoles(Map<String, Object> map);
+
+    /**
+     * 移除用户权限
+     * @param map 参数
+     */
+    void deleteUserRoles(Map<String, Object> map);
 }

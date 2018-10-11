@@ -3,7 +3,7 @@
 PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.keng.dao.UserDao">
-<select id="PageQueryData" resultType="com.keng.model.User">
+<select id="pageQueryData" resultType="com.keng.model.User">
 select * from t_user 
 <where>
 <if test="queryText != null">
@@ -13,7 +13,7 @@ select * from t_user
 order by createtime desc
 limit #{start} , #{size}
 </select>
-<select id="PageQueryCount" resultType="int">
+<select id="pageQueryCount" resultType="int">
 select count(*) from t_user
 <where>
 <if test="queryText != null">
@@ -22,26 +22,38 @@ select count(*) from t_user
 </where>
 </select>
 
-<select id="InsertUser">
+<select id="insertUser">
 insert into t_user (
 loginacct,username,userpswd,email,createtime
 ) values (
 #{loginacct},#{username},#{userpswd},#{email},#{createtime}
 )
 </select>
-<update id="UpdateUser">
+<update id="updateUser">
 update t_user 
 set loginacct = #{loginacct},username = #{username},email = #{email}
 where id = #{id}
 </update>
-<delete id="Delete">
+<delete id="delete">
 delete from t_user where id = #{id}
 </delete>
 
-<delete id="DeleteUsers">
+<delete id="deleteUsers">
 delete from t_user where id in
 <foreach collection="userids" item="userid" open="()" close=")" separator=",">
 #{userid}
 </foreach>
 </delete>
+ <insert id="insertUserRoles" >
+  insert into t_user_role (userid,roleid) value
+  <foreach collection="roleids" item="roleid" separator=",">
+   (#{userid},#{roleid})
+  </foreach>
+ </insert>
+ <delete id="deleteUserRoles" >
+  delete from t_user_role where userid = #{userid} and roleid in
+  <foreach collection="roleids" item="roleid" open="(" close=")" separator=",">
+   #{roleid}
+  </foreach>
+ </delete>
 </mapper>

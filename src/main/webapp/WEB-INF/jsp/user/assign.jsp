@@ -135,11 +135,14 @@
 				<form id="roleForm" role="form" class="form-inline">
 				  <input type="hidden" name="userid" value="${user.id}">
 				  <div class="form-group">
-					<label for="exampleInputPassword1">未分配角色列表</label><br>
+					<label for="leftList">未分配角色列表</label><br>
 					<select id="leftList" name="unassignroleids" class="form-control" multiple size="10" style="width:200px;overflow-y:auto;">
                         <c:forEach items="${unassignRoles}" var="role">
                         <option value="${role.id}">${role.name}</option>
                         </c:forEach>
+						<c:forEach items="${roles}" var="role">
+							<option value="${role.id}">${role.name}</option>
+						</c:forEach>
                     </select>
 				  </div>
 				  <div class="form-group">
@@ -150,11 +153,12 @@
                         </ul>
 				  </div>
 				  <div class="form-group" style="margin-left:40px;">
-					<label for="exampleInputPassword1">已分配角色列表</label><br>
+					<label for="rightList">已分配角色列表</label><br>
 					<select id="rightList" name="assignroleids" class="form-control" multiple size="10" style="width:200px;overflow-y:auto;">
                         <c:forEach items="${assingedRoles}" var="role">
                         <option value="${role.id}">${role.name}</option>
                         </c:forEach>
+
                     </select>
 				  </div>
 				</form>
@@ -216,7 +220,7 @@
 			    		
 			    		$.ajax({
 			    			type : "POST",
-			    			url  : "${APP_PATH}/user/doAssign",
+			    			url  : "${APP_PATH}/User/doAssign",
 			    			data : $("#roleForm").serialize(),
 			    			success : function(result) {
 			    				if ( result.success ) {
@@ -240,7 +244,7 @@
 			    	} else {
 			    		$.ajax({
 			    			type : "POST",
-			    			url  : "${APP_PATH}/user/dounAssign",
+			    			url  : "${APP_PATH}/User/dounAssign",
 			    			data : $("#roleForm").serialize(),
 			    			success : function(result) {
 			    				if ( result.success ) {

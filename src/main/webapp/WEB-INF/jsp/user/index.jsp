@@ -250,7 +250,7 @@
             				var pageContent = "";
             				
             				var userPage = result.data;
-            				var users = userPage.users;
+            				var users = userPage.datas;
 
             				$.each(users, function(i, user){
             	                tableContent += '<tr>';
@@ -303,7 +303,7 @@
             }
             
             function goAssignPage(id) {
-            	window.location.href = "${APP_PATH}/user/assign?id="+id;
+            	window.location.href = "${APP_PATH}/User/Assign?id="+id;
             }
             
 
