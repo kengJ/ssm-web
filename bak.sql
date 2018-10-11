@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `antiterroristcomputer` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8001 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.antiterroristcomputer 的数据：~8,000 rows (大约)
-DELETE FROM `antiterroristcomputer`;
 /*!40000 ALTER TABLE `antiterroristcomputer` DISABLE KEYS */;
 INSERT INTO `antiterroristcomputer` (`id`, `Name`) VALUES
 	(1, 'p00000'),
@@ -8036,8 +8035,7 @@ CREATE TABLE IF NOT EXISTS `antiterroristmessage` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.antiterroristmessage 的数据：~0 rows (大约)
-DELETE FROM `antiterroristmessage`;
+-- 正在导出表  test.antiterroristmessage 的数据：~7 rows (大约)
 /*!40000 ALTER TABLE `antiterroristmessage` DISABLE KEYS */;
 INSERT INTO `antiterroristmessage` (`id`, `memo`) VALUES
 	(1, '电脑登录117.1服务器出现预身份验证失败。这种事件将在用户输入错误密码时由密钥分发中心（KDC）生成。'),
@@ -8058,7 +8056,6 @@ CREATE TABLE IF NOT EXISTS `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.city 的数据：~3,705 rows (大约)
-DELETE FROM `city`;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
 INSERT INTO `city` (`id`, `name`, `parentId`) VALUES
 	(110000, '北京', 0),
@@ -11781,7 +11778,6 @@ CREATE TABLE IF NOT EXISTS `t_dbmessage` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.t_dbmessage 的数据：~2 rows (大约)
-DELETE FROM `t_dbmessage`;
 /*!40000 ALTER TABLE `t_dbmessage` DISABLE KEYS */;
 INSERT INTO `t_dbmessage` (`id`, `db_type`, `name`, `ip`, `username`, `password`, `dbname`) VALUES
 	(1, 'sqlserver', 'tx', '192.168.117.20\\tong', 'tx_app', 'app#%(app23', 'TxCard'),
@@ -11802,7 +11798,6 @@ CREATE TABLE IF NOT EXISTS `t_excellog` (
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.t_excellog 的数据：~6 rows (大约)
-DELETE FROM `t_excellog`;
 /*!40000 ALTER TABLE `t_excellog` DISABLE KEYS */;
 INSERT INTO `t_excellog` (`id`, `name`, `date`, `action`, `parms`, `useflag`, `usedate`, `data`) VALUES
 	(39, '人事信息查询导入列表', '2018-10-03', '/FindPersionMessageByCodeList', '373918,', NULL, NULL, '[{"sheetData":[["工号","姓名","部门","卡号","卡序列号","备注","离职日期"],["215537","谭羽乾","广东新宝电器股份有限公司 第三制造群 不锈钢公司二分厂 PMC科 采购科","215537","2993815006","HRMS系统修改",null],["373918","何彦柱","广东新宝电器股份有限公司 营运管理中心 信息化管理中心 系统运维管理部","950570","2494456305","",null]],"sheetName":"sheet1"}]'),
@@ -11813,10 +11808,32 @@ INSERT INTO `t_excellog` (`id`, `name`, `date`, `action`, `parms`, `useflag`, `u
 	(44, '人事信息查询导入列表', '2018-10-03', '/FindPersionMessageByCodeList', '373918,', 1, '2018-10-03 17:28:39', '[{"sheetData":[["工号","姓名","部门","卡号","卡序列号","备注","离职日期"],["003521","黄日梅","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件六厂 品管科","937490","1174206331","HRMS系统修改",null],["005016","黄振权","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件六厂 生产部 注塑一车间 B班 1组","005016",null,"HRMS系统修改",null],["005395","魏文英","广东新宝电器股份有限公司 第九制造群 三B公司 总装部 一车间 3线","005395",null,"HRMS系统修改",null],["008333","马明","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修三部 维修四科","108333",null,"HRMS系统修改",null],["008617","徐福文","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修二部 维修六科","968448",null,"",null],["009908","黄国富","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修一部 维修十科","101325","2857851931","HRMS系统变更卡号修改",null],["011575","刘远兴","广东新宝电器股份有限公司 第八制造群 二B公司 总装二部 后勤组","226811","3561932690","HRMS系统修改",null],["011695","李红英","广东新宝电器股份有限公司 第八制造群 二B公司 总装一部 丝印车间 2线","223695",null,"原身份证号：422424740524494，2008-11-04更换二代身份证",null],["017137","孟祖涛","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 IE组","938806",null,"HRMS系统修改",null],["019474","杨东才","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 A3班","926781",null,"",null],["025406","何伟锋","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 加工二部 编程组","299148",null,"",null],["028391","叶青英","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 制造一部 装配组","299590","2903157036","",null],["036558","钱得科","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修三部 维修九科","036558",null,"B",null],["040982","谭伟强","广东新宝电器股份有限公司 技术管理处 手板工厂","299137","2982096902","已更新",null],["041445","王同福","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件六厂 生产部 注塑二车间","965557","1425200612","HRMS系统修改",null],["042000","何光田","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 IE组","042000",null,"HRMS系统修改",null],["043208","付小梅","广东新宝电器股份有限公司 安全生产与环境保护管理委员会 行政中心 生活服务部 生活科","935269",null,"HRMS系统修改",null],["046951","刘李福","广东新宝电器股份有限公司 品质模块 认证测试中心 性能检测部","907097","1776006286","HRMS系统修改",null],["047863","郭秀娟","广东新宝电器股份有限公司 品质模块 认证测试中心 安全检测部","292983","237844682","HRMS系统修改",null],["051658","梁小芹","广东新宝电器股份有限公司 第九制造群 三B公司 总装部 散件车间 后勤1组","946849",null,"HRMS系统修改",null],["058041","黄伟","广东新宝电器股份有限公司 塑胶管理中心 HL项目部 WL 配色项目部 配色科","300363",null,"",null],["061022","庄汝川","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修二部 维修八科","938674",null,"HRMS系统修改",null],["067754","田信兵","广东新宝电器股份有限公司 塑胶管理中心 HL项目部 混料组 P4配料科 配料组","255948",null,"",null],["068359","郭志全","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 制造一部 装配组","920509","3764441029","HRMS系统修改",null],["068628","朱冬丽","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 装配组","068628",null,"",null],["068699","徐炎瑞","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 加工一部 编程组","920541","3169829570","",null],["068745","李夏林","广东新宝电器股份有限公司 塑胶管理中心 HL项目部 WL 配色项目部","950277",null,"",null],["069341","敬华兰","广东新宝电器股份有限公司 第三制造群 不锈钢公司一分厂 制造部 直身杯车间 清洗包装班","987527",null,"HRMS系统修改",null],["071588","李泽红","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 加工一部 机加工组","901661","3036699356","",null],["073728","周志军","广东新宝电器股份有限公司 技术管理处 手板工厂","073728","3833135956","",null],["074433","梁明聪","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 7班","926759",null,"2008-11-4更新第二代身份证",null],["077053","邓建忠","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件二厂 品管科 自制组B组","905853","2925628846","HRMS系统修改",null],["081006","汪武贤","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 A3班","951382",null,"HRMS系统修改",null],["083676","郭兴华","广东新宝电器股份有限公司 第三制造群 五金件一公司 五金一部 B1组","943944",null,"",null],["085740","郑慧春","广东新宝电器股份有限公司 第三制造群 五金件二公司 品管部 一科","963177",null,"2008-4-3更换第二代身份证",null],["089423","罗素英","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修一部 维修十一科","101394","2848459931","HRMS系统变更卡号修改",null],["094917","何民会","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 7班","926728",null,"HRMS系统修改",null],["096276","陈齐兵","广东新宝电器股份有限公司 营运管理中心 效率投资职能 自动化设备厂","907109","2925332398","",null],["096761","林祥芳","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修三部 维修二科","096761",null,"",null],["097934","傅燕华","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件六厂 品管科 外协组","097934","801178453","HRMS系统修改",null],["205637","廖志坚","广东新宝电器股份有限公司 第九制造群 三B公司 总装部 散件车间 后勤1组","102659","474744300","HRMS系统变更卡号修改",null],["230525","刘小明","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件一厂 品质工程部 设备科","942405",null,"HRMS系统修改",null],["236444","卢成","广东新宝电器股份有限公司 第一制造群 六公司 总装二部 HB车间 散件线","949057",null,"HRMS系统修改",null],["241909","梁惠娇","广东新宝电器股份有限公司 塑胶管理中心 威林工程塑料公司 综合部","955424","474919324","",null],["243116","龙德伦","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 加工一部 机加工组","243116",null,"HRMS系统修改",null],["255812","何荣伟","广东新宝电器股份有限公司 营运管理中心 效率投资职能 自动化设备厂","947652","3597299798","",null],["266317","王云一","广东新宝电器股份有限公司 营运管理中心 效率投资职能 自动化设备厂","907122","12379148","",null],["270424","曾昭诚","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修一部 维修一科","957833",null,"",null],["270765","邱丽玲","广东新宝电器股份有限公司 第七制造群 七公司 产品工程部 包装/资料组","908565","3094577787","HRMS系统修改",null],["282282","陈吉","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 技术部 设计一组","282282","3036821260","HRMS系统修改",null],["287259","肖延平","广东新宝电器股份有限公司 第三制造群 喷涂配件厂 生产部 喷涂一部 面包桶线","912176",null,"",null],["289349","邱祖伟","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 装配组","966203","425907260","HRMS系统修改",null],["291900","朱华凤","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 A3班","963157",null,"HRMS系统修改",null],["293218","王冬平","广东新宝电器股份有限公司 第三制造群 五金件二公司 生产一部 冲压车间 A3班","293218",null,"HRMS系统修改",null],["308861","彭瑞荣","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 制造一部 装配组","308861","2025874795","HRMS系统修改",null],["308883","吴志军","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 加工一部 编程组","938724","1425391478","",null],["313183","黄凡凡","广东新宝电器股份有限公司 品质模块 认证测试中心 安全检测部","313183","437032688","HRMS系统修改",null],["315575","刘红","广东新宝电器股份有限公司 塑胶管理中心 注塑设备管理部","957864",null,"",null],["315713","熊邦伟","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修三部 维修三科","936904",null,"",null],["328483","何永健","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 维修厂 制造三部 装配组","928102",null,"HRMS系统变更卡号修改",null],["346855","覃允楚","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具一厂 制造一部 装配组","952271","712132841","HRMS系统修改",null],["353443","唐区","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修一部 维修一科","938781",null,"",null],["353448","李俊国","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件一厂 生产部","222448",null,"HRMS系统离职修改","2018-08-29"],["355677","黄权赛","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修一部 维修一科","355677",null,"",null],["364182","陈马均","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 装配组","950564",null,"",null],["367465","任海洋","广东新宝电器股份有限公司 塑胶管理中心 模具管理部 维修二部 维修五科","938723",null,"",null],["409698","覃允震","广东新宝电器股份有限公司 技术管理处 塑胶模具公司 模具二厂 制造二部 装配组","409698",null,"HRMS系统修改",null],["417379","向花英","广东新宝电器股份有限公司 第三制造群 五金件二公司 PMC部 物控组","417379",null,"",null],["421456","莫芳珍","广东新宝电器股份有限公司 第九制造群 三B公司 总装部 三车间 1线","910696",null,"HRMS系统修改",null],["654059","黄惠智","广东新宝电器股份有限公司 塑胶管理中心 塑胶配件十厂 生产部 A班 A1线","206969",null,"HRMS系统修改",null]],"sheetName":"sheet1"}]');
 /*!40000 ALTER TABLE `t_excellog` ENABLE KEYS */;
 
+-- 导出  表 test.t_role 结构
+CREATE TABLE IF NOT EXISTS `t_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- 正在导出表  test.t_role 的数据：~9 rows (大约)
+/*!40000 ALTER TABLE `t_role` DISABLE KEYS */;
+INSERT INTO `t_role` (`id`, `name`) VALUES
+	(1, 'PM-项目经理'),
+	(2, 'SE-软件工程师'),
+	(3, 'PG-程序员'),
+	(4, 'TL-组长'),
+	(5, 'GL-组长'),
+	(6, 'QC-品质控制员'),
+	(7, 'SA-软件架构师'),
+	(8, 'CMS-配置管理员'),
+	(9, 'SYSTEM-系统管理员');
+/*!40000 ALTER TABLE `t_role` ENABLE KEYS */;
+
 -- 导出  表 test.t_user 结构
 CREATE TABLE IF NOT EXISTS `t_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT '0',
+  `createtime` datetime DEFAULT current_timestamp(),
   `loginacct` varchar(50) DEFAULT NULL,
   `userpswd` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
@@ -11824,22 +11841,33 @@ CREATE TABLE IF NOT EXISTS `t_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.t_user 的数据：~12 rows (大约)
-DELETE FROM `t_user`;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
-INSERT INTO `t_user` (`id`, `username`, `loginacct`, `userpswd`, `email`) VALUES
-	(1, 'keng', 'keng', '123456', 'test.com'),
-	(2, 'test1', 'test1', 'test1', 'test1'),
-	(3, 'test1', 'test1', 'test1', 'test1'),
-	(4, 'test2', 'test2', 'test2', 'test2'),
-	(5, 'test3', 'test3', 'test3', 'test3'),
-	(6, 'test4', 'test4', 'test4', 'test4'),
-	(7, 'test5', 'test5', 'test5', 'test5'),
-	(8, 'test6', 'test6', 'test6', 'test6'),
-	(9, 'test7', 'test7', 'test7', 'test7'),
-	(10, 'test8', 'test8', 'test8', 'test8'),
-	(11, 'test9', 'test9', 'test9', 'test9'),
-	(12, 'test10', 'test10', 'test10', 'test10');
+INSERT INTO `t_user` (`id`, `username`, `createtime`, `loginacct`, `userpswd`, `email`) VALUES
+	(1, 'keng', '2018-10-11 14:31:09', 'keng', '123456', 'test.com'),
+	(2, 'test1', '2018-10-11 14:31:09', 'test1', 'test1', 'test1'),
+	(3, 'test1', '2018-10-11 14:31:09', 'test1', 'test1', 'test1'),
+	(4, 'test2', '2018-10-11 14:31:09', 'test2', 'test2', 'test2'),
+	(5, 'test3', '2018-10-11 14:31:09', 'test3', 'test3', 'test3'),
+	(6, 'test4', '2018-10-11 14:31:09', 'test4', 'test4', 'test4'),
+	(7, 'test5', '2018-10-11 14:31:09', 'test5', 'test5', 'test5'),
+	(8, 'test6', '2018-10-11 14:31:09', 'test6', 'test6', 'test6'),
+	(9, 'test7', '2018-10-11 14:31:09', 'test7', 'test7', 'test7'),
+	(10, 'test8', '2018-10-11 14:31:09', 'test8', 'test8', 'test8'),
+	(11, 'test9', '2018-10-11 14:31:09', 'test9', 'test9', 'test9'),
+	(12, 'test10', '2018-10-11 14:31:09', 'test10', 'test10', 'test10');
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
+
+-- 导出  表 test.t_user_role 结构
+CREATE TABLE IF NOT EXISTS `t_user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `roleid` int(11) NOT NULL DEFAULT 0,
+  `userid` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- 正在导出表  test.t_user_role 的数据：~0 rows (大约)
+/*!40000 ALTER TABLE `t_user_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_user_role` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
