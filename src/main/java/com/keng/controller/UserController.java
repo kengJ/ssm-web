@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import com.keng.bean.Page;
 
 /**
@@ -153,10 +151,29 @@ public class UserController {
 
     @RequestMapping(value = "/Assign")
     public String assign(Integer id ,Model model){
+        //用户信息
         User user = userService.queryById(id.toString());
-        model.addAttribute("user",user);
         List<Role> roles = roleService.queryAll();
-        model.addAttribute("roles",roles);
+
+        //已分配权限
+        List<Role> assignedRoles = new ArrayList<>();
+        //未分配权限
+        List<Role> unassignRoles = new ArrayList<>();
+
+        //获取关系表的数据
+        List<Integer> roleids =  userService.queryRoleidsByUserid(id);
+
+        for(Role role : roles){
+            if(roleids.contains(role.getId())){
+                assignedRoles.add(role);
+            }else{
+                unassignRoles.add(role);
+            }
+        }
+        model.addAttribute("assignedRoles",assignedRoles);
+        model.addAttribute("unassignRoles",unassignRoles);
+        model.addAttribute("user",user);
+        //model.addAttribute("roles",roles);
         return "user/assign";
     }
 

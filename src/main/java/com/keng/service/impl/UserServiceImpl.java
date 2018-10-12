@@ -72,4 +72,9 @@ public class UserServiceImpl implements UserService {
         System.out.println(map);
         userDao.insertUserRoles(map);
     }
+
+    @Override
+    public List<Integer> queryRoleidsByUserid(Integer userid) {
+        return userDao.queryRoleidsByUserid(userid);
+    }
 }

@@ -83,4 +83,6 @@ public interface UserDao {
      * @param map 参数
      */
     void deleteUserRoles(Map<String, Object> map);
+
+    List<Integer> queryRoleidsByUserid(Integer userid);
 }

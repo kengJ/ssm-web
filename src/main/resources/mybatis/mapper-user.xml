@@ -56,4 +56,7 @@ delete from t_user where id in
    #{roleid}
   </foreach>
  </delete>
+ <select id="queryRoleidsByUserid" resultType="Integer">
+  select roleid from t_user_role where userid = #{userid}
+ </select>
 </mapper>

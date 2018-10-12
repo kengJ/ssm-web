@@ -1,5 +1,4 @@
 <%@page pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -128,37 +127,22 @@
 				<ol class="breadcrumb">
 				  <li><a href="#">首页</a></li>
 				  <li><a href="#">数据列表</a></li>
-				  <li class="active">分配角色</li>
+				  <li class="active">新增</li>
 				</ol>
 			<div class="panel panel-default">
+              <div class="panel-heading">表单数据<div style="float:right;cursor:pointer;" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-question-sign"></i></div></div>
 			  <div class="panel-body">
-				<form id="roleForm" role="form" class="form-inline">
-				  <input type="hidden" name="userid" value="${user.id}">
+				<form role="form">
 				  <div class="form-group">
-					<label for="leftList">未分配角色列表</label><br>
-					<select id="leftList" name="unassignroleids" class="form-control" multiple size="10" style="width:200px;overflow-y:auto;">
-                        <c:forEach items="${unassignRoles}" var="role">
-                        <option value="${role.id}">${role.name}</option>
-                        </c:forEach>
-
-                    </select>
+					<label for="permissionname">许可名称</label>
+					<input type="text" class="form-control" id="permissionname" placeholder="请输入许可名称">
 				  </div>
 				  <div class="form-group">
-                        <ul>
-                            <li id="left2RightBtn" class="btn btn-default glyphicon glyphicon-chevron-right"></li>
-                            <br>
-                            <li id="right2LeftBtn" class="btn btn-default glyphicon glyphicon-chevron-left" style="margin-top:20px;"></li>
-                        </ul>
+					<label for="url">链接地址</label>
+					<input type="text" class="form-control" id="url" placeholder="请输入链接地址">
 				  </div>
-				  <div class="form-group" style="margin-left:40px;">
-					<label for="rightList">已分配角色列表</label><br>
-					<select id="rightList" name="assignedRoles" class="form-control" multiple size="10" style="width:200px;overflow-y:auto;">
-                        <c:forEach items="${assignedRoles}" var="role">
-                        <option value="${role.id}">${role.name}</option>
-                        </c:forEach>
-
-                    </select>
-				  </div>
+				  <button id="insertBtn" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> 新增</button>
+				  <button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-refresh"></i> 重置</button>
 				</form>
 			  </div>
 			</div>
@@ -208,55 +192,40 @@
 					}
 				});
 			    
-			    $("#left2RightBtn").click(function(){
-			    	var opts = $("#leftList :selected");
-			    	if ( opts.length == 0 ) {
-                        layer.msg("请选择需要分配的角色数据", {time:2000, icon:5, shift:6}, function(){
+			    $("#insertBtn").click(function(){
+			    	var permissionname = $("#permissionname").val();
+			    	if ( permissionname == "" ) {
+                        layer.msg("许可名称不能为空，请输入", {time:2000, icon:5, shift:6}, function(){
                         	
                         });
-			    	} else {
-			    		
-			    		$.ajax({
-			    			type : "POST",
-			    			url  : "${APP_PATH}/User/doAssign",
-			    			data : $("#roleForm").serialize(),
-			    			success : function(result) {
-			    				if ( result.success ) {
-			    					$("#rightList").append(opts);
-			                        layer.msg("分配角色数据成功", {time:2000, icon:6}, function(){
-			                        });
-			    				} else {
-			                        layer.msg("分配角色数据失败", {time:2000, icon:5, shift:6}, function(){
-			                        });
-			    				}
-			    			}
-			    		});
+                        return;
 			    	}
-			    });
-			    $("#right2LeftBtn").click(function(){
-			    	var opts = $("#rightList :selected");
-			    	if ( opts.length == 0 ) {
-                        layer.msg("请选择需要取消分配的角色数据", {time:2000, icon:5, shift:6}, function(){
-                        	
-                        });
-			    	} else {
-			    		$.ajax({
-			    			type : "POST",
-			    			url  : "${APP_PATH}/User/dounAssign",
-			    			data : $("#roleForm").serialize(),
-			    			success : function(result) {
-			    				if ( result.success ) {
-			    					$("#leftList").append(opts);
-			                        layer.msg("取消分配角色数据成功", {time:2000, icon:6}, function(){
-			                        });
-			    				} else {
-			                        layer.msg("取消分配角色数据失败", {time:2000, icon:5, shift:6}, function(){
-			                        });
-			    				}
+			    	
+			    	var loadingIndex = null;
+			    	$.ajax({
+			    		type : "POST",
+			    		url  : "${APP_PATH}/permission/insert",
+			    		data : {
+			    			"name" : permissionname,
+			    			"url"  : $("#url").val(),
+			    			"pid"  : "${param.id}"
+			    		},
+			    		beforeSend : function() {
+			    			loadingIndex = layer.msg('处理中', {icon: 16});
+			    		},
+			    		success : function(result) {
+			    			layer.close(loadingIndex);
+			    			if ( result.success ) {
+		                        layer.msg("许可信息保存成功", {time:1000, icon:6}, function(){
+		                        	window.location.href = "${APP_PATH}/permission/index";
+		                        });
+			    			} else {
+		                        layer.msg("许可信息保存失败，请重新操作", {time:2000, icon:5, shift:6}, function(){
+		                        	
+		                        });
 			    			}
-			    		});
-			    		
-			    	}
+			    		}
+			    	});
 			    });
             });
         </script>
