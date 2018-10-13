@@ -11781,7 +11781,8 @@ CREATE TABLE IF NOT EXISTS `t_dbmessage` (
 /*!40000 ALTER TABLE `t_dbmessage` DISABLE KEYS */;
 INSERT INTO `t_dbmessage` (`id`, `db_type`, `name`, `ip`, `username`, `password`, `dbname`) VALUES
 	(1, 'sqlserver', 'tx', '192.168.117.20\\tong', 'tx_app', 'app#%(app23', 'TxCard'),
-	(2, 'sqlserver', 'zk', '192.168.117.85', 'sa', 'Csr.Donlim.Com', 'zkeco_db');
+	(2, 'sqlserver', 'zk', '192.168.117.85', 'sa', 'Csr.Donlim.Com', 'zkeco_db'),
+	(3, 'sqlserver', 'fk', '192.168.117.70', 'sa', 'donlim.com', 'myerp16');
 /*!40000 ALTER TABLE `t_dbmessage` ENABLE KEYS */;
 
 -- 导出  表 test.t_excellog 结构
