@@ -1,5 +1,6 @@
 package com.keng.service;
 
+import com.keng.bean.VisitorRoom;
 import com.keng.model.DbMessage;
 import java.util.List;
 
@@ -27,4 +28,6 @@ public interface DbService {
      * @return
      */
     List<DbMessage> findByName(String name);
+
+    List<VisitorRoom> queryVisitorRoomAll();
 }

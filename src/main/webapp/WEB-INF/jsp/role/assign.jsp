@@ -163,7 +163,7 @@
 		    		},
 		    		async: {
 		    			enable: true,
-		    			url:"${APP_PATH}/Permission/loadAssignData?roleid=${param.id}",
+		    			url:"${APP_PATH}/permission/loadAssignData?roleid=${param.id}",
 		    			autoParam:["id", "name=n", "level=lv"]
 		    		},
 					view: {

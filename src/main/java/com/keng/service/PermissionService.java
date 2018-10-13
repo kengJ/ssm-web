@@ -27,4 +27,6 @@ public interface PermissionService {
     Permission queryPermissionById(Integer id);
 
     void updatePermission(Permission permission);
+
+    List<Integer> queryPermissionidsByRoleid(Integer roleid);
 }

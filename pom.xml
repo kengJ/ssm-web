@@ -105,6 +105,7 @@
             <version>5.1.37</version>
         </dependency>
 
+        <!-- sqlserver 2008 驱动 -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc4</artifactId>
@@ -219,5 +220,16 @@
     </dependencies>
     <build>
         <finalName>ssm-web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerVersion>1.7</compilerVersion>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

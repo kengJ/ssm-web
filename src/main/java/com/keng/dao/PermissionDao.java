@@ -32,4 +32,7 @@ public interface PermissionDao {
     Permission queryPermissionById(Integer id);
 
     void updatePermission(Permission permission);
+
+    @Select("select permissionid from t_role_permission where roleid =  #{roleid}")
+    List<Integer> queryPermissionidsByRoleid(Integer roleid);
 }

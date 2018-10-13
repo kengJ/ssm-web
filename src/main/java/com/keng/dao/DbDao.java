@@ -1,5 +1,6 @@
 package com.keng.dao;
 
+import com.keng.bean.VisitorRoom;
 import org.apache.ibatis.annotations.Select;
 import com.keng.model.DbMessage;
 import java.util.List;
@@ -30,4 +31,5 @@ public interface DbDao {
      */
     @Select("select * from t_dbmessage where name like concat('%',#{name},'%')")
     List<DbMessage> findByName(String name);
+
 }

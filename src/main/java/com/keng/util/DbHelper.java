@@ -65,7 +65,8 @@ public class DbHelper {
         } catch (ClassNotFoundException e) {
             System.out.println("驱动异常");
         } catch (SQLException e) {
-            System.out.println("查询异常");
+            System.out.println("连接异常");
+            System.out.println(e.toString());
         }
     }
 

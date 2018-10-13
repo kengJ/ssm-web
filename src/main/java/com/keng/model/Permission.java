@@ -23,6 +23,15 @@ public class Permission {
     private List<Permission> children = new ArrayList<>();
     private String icon;
     private String target = "_self";
+    private boolean checked;
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 
     public String getTarget() {
         return target;

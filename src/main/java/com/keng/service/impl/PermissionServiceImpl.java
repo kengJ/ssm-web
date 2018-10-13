@@ -53,4 +53,9 @@ public class PermissionServiceImpl implements PermissionService {
     public void updatePermission(Permission permission) {
         permissionDao.updatePermission(permission);
     }
+
+    @Override
+    public List<Integer> queryPermissionidsByRoleid(Integer roleid) {
+        return permissionDao.queryPermissionidsByRoleid(roleid);
+    }
 }
