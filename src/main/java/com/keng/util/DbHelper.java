@@ -109,4 +109,27 @@ public class DbHelper {
         return dataList;
 
     }
+
+    public boolean exec(String sql){
+        boolean result = false;
+        Statement stmt = null;
+        try {
+            Statement statement = stmt = dbConn.createStatement();
+            statement.execute(sql);
+            result =  true;
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("sql异常");
+        }finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                dbConn.close();
+            } catch (SQLException e) {
+                System.out.println("资源关闭异常");
+            }
+        }
+        return result;
+    }
 }

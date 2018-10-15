@@ -30,4 +30,8 @@ public interface DbService {
     List<DbMessage> findByName(String name);
 
     List<VisitorRoom> queryVisitorRoomAll();
+
+    VisitorRoom queryVisitorRoomById(Integer id);
+
+    boolean updateVisitorRoomComputerName(Integer id,String computername);
 }

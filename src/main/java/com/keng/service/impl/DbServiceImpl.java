@@ -43,8 +43,8 @@ public class DbServiceImpl implements DbService {
         DbMessage dbMessage = findByName("fk").get(0);
         DbHelper dbHelper = new DbHelper(dbMessage);
         dbHelper.createConn(dbMessage);
-        String sql = "select convert(varchar(50),b.tablerecid) as tablerecid,\n" +
-                "convert(varchar(50) ,b.userno) as userno,convert(varchar(50),b.computername) as computername,convert(varchar(50),b.doorbillno) as doorbillno,convert(varchar(50),c.doorname) as doorname,convert(varchar(50),c.dktype) as dktype from ba_usercomputer b inner join  fk_doorlist  c on b.doorbillno=c.doorbillno";
+        String sql = "select convert(varchar(50),b.tablerecid) as tablerecid," +
+                "convert(varchar(50) ,b.userno) as userno,convert(varchar(50),b.computername) as computername,convert(varchar(50),b.doorbillno) as doorbillno,convert(varchar(50),c.doorname) as doorname from ba_usercomputer b inner join  fk_doorlist  c on b.doorbillno=c.doorbillno";
         Map<String,Object> result = dbHelper.findData(sql);
         List<String[]> data = (List<String[]>) result.get("data");
         List<VisitorRoom> resultData = new ArrayList<>();
@@ -55,11 +55,38 @@ public class DbServiceImpl implements DbService {
                 room.setUserno(line[1]);
                 room.setComputername(line[2]);
                 room.setDoorbillno(line[3]);
-                room.setComputername(line[4]);
-                room.setDoorname(line[5]);
+                room.setDoorname(line[4]);
                 resultData.add(room);
             }
         }
         return resultData;
+    }
+
+    @Override
+    public VisitorRoom queryVisitorRoomById(Integer id) {
+        DbMessage dbMessage = findByName("fk").get(0);
+        DbHelper dbHelper = new DbHelper(dbMessage);
+        dbHelper.createConn(dbMessage);
+        String sql = "select convert(varchar(50),b.tablerecid) as tablerecid," +
+                "convert(varchar(50) ,b.userno) as userno,convert(varchar(50),b.computername) as computername,convert(varchar(50),b.doorbillno) as doorbillno,convert(varchar(50),c.doorname) as doorname from ba_usercomputer b inner join  fk_doorlist  c on b.doorbillno=c.doorbillno";
+        Map<String,Object> result = dbHelper.findData(sql);
+        List<String[]> data = (List<String[]>) result.get("data");
+        VisitorRoom room = new VisitorRoom();
+        String[] line = data.get(1);
+        room.setTablerecid(Integer.parseInt(line[0]));
+        room.setUserno(line[1]);
+        room.setComputername(line[2]);
+        room.setDoorbillno(line[3]);
+        room.setDoorname(line[4]);
+        return room;
+    }
+
+    @Override
+    public boolean updateVisitorRoomComputerName(Integer id, String computername) {
+        DbMessage dbMessage = findByName("fk").get(0);
+        DbHelper dbHelper = new DbHelper(dbMessage);
+        dbHelper.createConn(dbMessage);
+        String sql = "update ba_usercomputer set computername = '"+computername+"' where tablerecid = '"+id+"'";
+        return dbHelper.exec(sql);
     }
 }

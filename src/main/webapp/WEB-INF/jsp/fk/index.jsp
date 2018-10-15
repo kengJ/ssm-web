@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${APP_PATH}/css/main.css">
 </head>
 <body>
+<div class="container">
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -23,6 +24,7 @@
         <td>电脑名</td>
         <td>区域</td>
         <td>门名称</td>
+        <td>操作</td>
     </tr>
     </thead>
     <tbody>
@@ -33,12 +35,21 @@
                 <td>${room.computername}</td>
                 <td>${room.doorbillno}</td>
                 <td>${room.doorname}</td>
+                <td>
+                    <button class="btn btn-default" type="button" onclick="edit(${room.tablerecid})">修改</button>
+                </td>
             </tr>
         </c:forEach>
 
     </tbody>
 </table>
+</div>
 <script src="${APP_PATH}/jquery/jquery-2.1.1.min.js"></script>
 <script src="${APP_PATH}/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    function edit(id){
+        window.location.href="${APP_PATH}/fk/edit";
+    }
+</script>
 </body>
 </html>
