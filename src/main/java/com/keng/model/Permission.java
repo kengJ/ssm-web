@@ -23,7 +23,7 @@ public class Permission {
     private List<Permission> children = new ArrayList<>();
     private String icon;
     private String target = "_self";
-    private boolean checked;
+    private boolean checked = false;
 
     public boolean isChecked() {
         return checked;

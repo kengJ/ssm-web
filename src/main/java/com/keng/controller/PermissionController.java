@@ -81,6 +81,8 @@ public class PermissionController {
         return "permission/index";
     }
 
+
+
     @ResponseBody
     @RequestMapping("/loadAssignData")
     public Object loadAssignData( Integer roleid ) {
@@ -90,7 +92,7 @@ public class PermissionController {
         // 获取当前角色已经分配的许可信息
         List<Integer> permissionids = permissionService.queryPermissionidsByRoleid(roleid);
 
-        Map<Integer, Permission> permissionMap = new HashMap<Integer, Permission>();
+        Map<Integer, Permission> permissionMap = new HashMap<>();
         for (Permission p : ps) {
             if ( permissionids.contains(p.getId()) ) {
                 p.setChecked(true);

@@ -2,6 +2,7 @@ package com.keng.service.impl;
 
 import com.keng.dao.PermissionDao;
 import com.keng.model.Permission;
+import com.keng.model.User;
 import com.keng.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,5 +58,10 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public List<Integer> queryPermissionidsByRoleid(Integer roleid) {
         return permissionDao.queryPermissionidsByRoleid(roleid);
+    }
+
+    @Override
+    public List<Permission> queryPermissionForUser(User dbUser) {
+        return permissionDao.queryPermissionForUser(dbUser);
     }
 }

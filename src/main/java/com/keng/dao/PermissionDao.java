@@ -1,6 +1,7 @@
 package com.keng.dao;
 
 import com.keng.model.Permission;
+import com.keng.model.User;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -35,4 +36,6 @@ public interface PermissionDao {
 
     @Select("select permissionid from t_role_permission where roleid =  #{roleid}")
     List<Integer> queryPermissionidsByRoleid(Integer roleid);
+
+    List<Permission> queryPermissionForUser(User dbUser);
 }

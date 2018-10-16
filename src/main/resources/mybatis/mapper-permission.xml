@@ -12,4 +12,11 @@
         update t_permission set name = #{name} ,url = #{url}
         where id = #{id}
     </update>
+    <select id="queryPermissionForUser" resultType="com.keng.model.Permission">
+        select * from t_permission where id in (
+            select permissionid from t_role_permission where roleid = in (
+              select roleid from t_user_role where userid = #{id}
+            )
+        )
+    </select>
 </mapper>

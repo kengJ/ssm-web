@@ -1,6 +1,7 @@
 package com.keng.service;
 
 import com.keng.model.Permission;
+import com.keng.model.User;
 
 import java.util.List;
 
@@ -29,4 +30,6 @@ public interface PermissionService {
     void updatePermission(Permission permission);
 
     List<Integer> queryPermissionidsByRoleid(Integer roleid);
+
+    List<Permission> queryPermissionForUser(User dbUser);
 }
