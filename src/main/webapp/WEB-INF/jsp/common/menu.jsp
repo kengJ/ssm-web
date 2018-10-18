@@ -1,15 +1,9 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <ul style="padding-left:0px;" class="list-group">
-	<li class="list-group-item tree-closed" >
-		<a href="User/Index"><i class="glyphicon glyphicon-user"></i>用户组维护</a> 
-	</li> 
-	<li class="list-group-item tree-closed" >
-		<a href="role/index"><i class="glyphicon glyphicon-user"></i>权限组维护</a> 
-	</li> 
     <c:forEach items="${rootPermission.children}" var="permission">
         <c:if test="${empty permission.children}">
-			<li class="list-group-item tree-closed" >
+			<li class="list-group-item tree-closed title" >
 				<a href="${APP_PATH}${permission.url}"><i class="${permission.icon}"></i> ${permission.name}</a> 
 			</li>        
         </c:if>

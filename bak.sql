@@ -11775,9 +11775,9 @@ CREATE TABLE IF NOT EXISTS `t_dbmessage` (
   `password` varchar(50) DEFAULT '0',
   `dbname` varchar(50) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.t_dbmessage 的数据：~2 rows (大约)
+-- 正在导出表  test.t_dbmessage 的数据：~3 rows (大约)
 /*!40000 ALTER TABLE `t_dbmessage` DISABLE KEYS */;
 INSERT INTO `t_dbmessage` (`id`, `db_type`, `name`, `ip`, `username`, `password`, `dbname`) VALUES
 	(1, 'sqlserver', 'tx', '192.168.117.20\\tong', 'tx_app', 'app#%(app23', 'TxCard'),
@@ -11822,19 +11822,15 @@ CREATE TABLE IF NOT EXISTS `t_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.t_permission 的数据：~10 rows (大约)
+-- 正在导出表  test.t_permission 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `t_permission` DISABLE KEYS */;
 INSERT INTO `t_permission` (`id`, `name`, `pid`, `url`, `icon`) VALUES
-	(1, '系统菜单', 0, '#', 'glyphicon glyphicon-th-list'),
-	(2, '控制面板', 1, '#', NULL),
+	(1, '系统菜单', 0, '/main', 'glyphicon glyphicon-th-list'),
+	(2, '控制面板', 1, '/main', NULL),
 	(3, '权限管理', 1, '#', NULL),
-	(4, '用户维护', 3, '#', NULL),
-	(5, '权限维护', 3, '#', NULL),
-	(6, '许可维护', 3, '#', NULL),
-	(9, 'test', 1, '', NULL),
-	(10, 'test1', 9, '', NULL),
-	(11, 'test1', 9, '', NULL),
-	(12, 'test3', 1, '', NULL);
+	(4, '用户维护', 3, '/User/Index', NULL),
+	(5, '权限维护', 3, '/role/index', NULL),
+	(6, '许可维护', 3, '/permission/index', NULL);
 /*!40000 ALTER TABLE `t_permission` ENABLE KEYS */;
 
 -- 导出  表 test.t_role 结构
@@ -11864,10 +11860,17 @@ CREATE TABLE IF NOT EXISTS `t_role_permission` (
   `roleid` int(11) NOT NULL DEFAULT 0,
   `permissionid` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- 正在导出表  test.t_role_permission 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `t_role_permission` DISABLE KEYS */;
+INSERT INTO `t_role_permission` (`id`, `roleid`, `permissionid`) VALUES
+	(1, 1, 1),
+	(2, 1, 2),
+	(3, 1, 3),
+	(4, 1, 4),
+	(5, 1, 5),
+	(6, 1, 6);
 /*!40000 ALTER TABLE `t_role_permission` ENABLE KEYS */;
 
 -- 导出  表 test.t_user 结构
@@ -11909,7 +11912,7 @@ CREATE TABLE IF NOT EXISTS `t_user_role` (
 -- 正在导出表  test.t_user_role 的数据：~1 rows (大约)
 /*!40000 ALTER TABLE `t_user_role` DISABLE KEYS */;
 INSERT INTO `t_user_role` (`id`, `roleid`, `userid`) VALUES
-	(3, 1, 12);
+	(3, 1, 1);
 /*!40000 ALTER TABLE `t_user_role` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

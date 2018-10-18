@@ -2,24 +2,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keys" content="">
-    <meta name="author" content="">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/login.css">
-	<style>
-
-	</style>
+      <%@include file="/WEB-INF/jsp/common/head.jsp"%>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <div><a class="navbar-brand" href="index.html" style="font-size:32px;">尚筹网-创意产品众筹平台</a></div>
+          <div><a class="navbar-brand" href="index.html" style="font-size:32px;">管理平台</a></div>
         </div>
       </div>
     </nav>
@@ -39,12 +28,12 @@
 			<input type="text" class="form-control input-sm" id="userpswd" name="userpswd" placeholder="请输入登录密码" style="margin-top:10px;">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		  </div>
-		  <div class="form-group has-success has-feedback">
+		  <!--<div class="form-group has-success has-feedback">
 			<select class="form-control input-sm" >
                 <option value="member">会员</option>
                 <option value="user">管理</option>
             </select>
-		  </div>
+		  </div>-->
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> 记住我

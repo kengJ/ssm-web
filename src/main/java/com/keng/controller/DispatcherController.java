@@ -51,16 +51,17 @@ public class DispatcherController {
             for (Permission permission : permissions){
                 permissionMap.put(permission.getId(),permission);
             }
+            //root = permissionMap.get(0);
             for (Permission permission : permissions){
                 Permission child = permission;
                 if(child.getPid()==0){
                     root = permission;
                 }else{
-                    Permission parent = permissionMap.get(child.getId());
+                    Permission parent = permissionMap.get(child.getPid());
                     parent.getChildren().add(child);
                 }
             }
-            session.setAttribute("rootpermission",root);
+            session.setAttribute("rootPermission",root);
             result.setSuccess(true);
         }else {
             result.setSuccess(false);
