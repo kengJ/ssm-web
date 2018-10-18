@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.keng.bean.AjaxResult;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * FileName: DispatcherController
@@ -48,9 +46,14 @@ public class DispatcherController {
             List<Permission> permissions = permissionService.queryPermissionForUser(dbUser);
             Map<Integer,Permission> permissionMap = new HashMap<>(permissions.size());
             Permission root = null;
+            Set<String> uriSet = new HashSet<>();
             for (Permission permission : permissions){
                 permissionMap.put(permission.getId(),permission);
+                if (permission.getUrl()!=null&&!"".equals(permission.getUrl())){
+                    uriSet.add(session.getServletContext().getContextPath() + permission.getUrl());
+                }
             }
+            session.setAttribute("authUriSet",uriSet);
             //root = permissionMap.get(0);
             for (Permission permission : permissions){
                 Permission child = permission;
@@ -81,4 +84,8 @@ public class DispatcherController {
         return "main";
     }
 
+    @RequestMapping(value = "/error")
+    public String error(){
+        return "error";
+    }
 }

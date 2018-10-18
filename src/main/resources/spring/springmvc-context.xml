@@ -13,7 +13,7 @@
     
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven /> 
-    <!-- 
+
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
@@ -27,7 +27,7 @@
             <mvc:exclude-mapping path="/layer/**" />
             <mvc:exclude-mapping path="/script/**" />
             <mvc:exclude-mapping path="/ztree/**" />
-            <bean class="com.atguigu.atcrowdfunding.web.LoginInterceptor"></bean>
+            <bean class="com.keng.web.LoginInterceptor"></bean>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
@@ -41,10 +41,9 @@
             <mvc:exclude-mapping path="/layer/**" />
             <mvc:exclude-mapping path="/script/**" />
             <mvc:exclude-mapping path="/ztree/**" />
-            <bean class="com.atguigu.atcrowdfunding.web.AuthInterceptor"></bean>
+            <bean class="com.keng.web.AuthInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
-     -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
