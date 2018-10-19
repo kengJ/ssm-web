@@ -35,12 +35,14 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
-    public Object deletes(Integer[] userId) {
+    @RequestMapping(value = "/Deletes")
+    @ResponseBody
+    public Object deletes(Integer[] userid) {
         AjaxResult result = new AjaxResult();
 
         try {
             Map<String, Object> map = new HashMap<String, Object>(1);
-            map.put("userids", userId);
+            map.put("userids", userid);
             userService.deleteUsers(map);
             result.setSuccess(true);
         } catch (Exception e) {
@@ -52,6 +54,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/Delete")
+    @ResponseBody
     public Object delete(String id) {
         AjaxResult result =  new AjaxResult();
         try {

@@ -17,7 +17,8 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/login" />
+            <mvc:exclude-mapping path="/Login" />
+            <mvc:exclude-mapping path="/Logout" />
             <mvc:exclude-mapping path="/doAJAXLogin" />
             <mvc:exclude-mapping path="/bootstrap/**" />
             <mvc:exclude-mapping path="/css/**" />
@@ -31,7 +32,8 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/login" />
+            <mvc:exclude-mapping path="/Login" />
+            <mvc:exclude-mapping path="/Logout" />
             <mvc:exclude-mapping path="/doAJAXLogin" />
             <mvc:exclude-mapping path="/bootstrap/**" />
             <mvc:exclude-mapping path="/css/**" />

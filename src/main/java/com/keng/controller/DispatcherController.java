@@ -43,7 +43,13 @@ public class DispatcherController {
         if(dbUser != null) {
             session.setAttribute("loginUser", dbUser);
             //获取权限信息
-            List<Permission> permissions = permissionService.queryPermissionForUser(dbUser);
+            List<Permission> permissions;
+            //如果账号为管理员，直接获取所有目录
+            if("admin".equals(dbUser.getUsername())){
+                permissions = permissionService.queryAll();
+            }else{
+                permissions = permissionService.queryPermissionForUser(dbUser);
+            }
             Map<Integer,Permission> permissionMap = new HashMap<>(permissions.size());
             Permission root = null;
             Set<String> uriSet = new HashSet<>();
@@ -54,7 +60,6 @@ public class DispatcherController {
                 }
             }
             session.setAttribute("authUriSet",uriSet);
-            //root = permissionMap.get(0);
             for (Permission permission : permissions){
                 Permission child = permission;
                 if(child.getPid()==0){

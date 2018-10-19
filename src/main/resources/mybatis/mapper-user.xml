@@ -40,7 +40,7 @@ delete from t_user where id = #{id}
 
 <delete id="deleteUsers">
 delete from t_user where id in
-<foreach collection="userids" item="userid" open="()" close=")" separator=",">
+<foreach collection="userids" item="userid" open="(" close=")" separator=",">
 #{userid}
 </foreach>
 </delete>

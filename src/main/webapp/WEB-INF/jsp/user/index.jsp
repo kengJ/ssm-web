@@ -244,7 +244,7 @@
     				$.ajax({
     					type : "POST",
     					url  : "${APP_PATH}/User/Delete",
-    					data : { Id : id },
+    					data : { id : id },
     					success : function(result) {
     						if ( result.success ) {
     							pageQuery(1);
