@@ -11817,20 +11817,23 @@ CREATE TABLE IF NOT EXISTS `t_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `pid` int(11) DEFAULT NULL,
-  `url` varchar(50) DEFAULT NULL,
+  `url` text DEFAULT NULL,
   `icon` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.t_permission 的数据：~6 rows (大约)
+-- 正在导出表  test.t_permission 的数据：~7 rows (大约)
 /*!40000 ALTER TABLE `t_permission` DISABLE KEYS */;
 INSERT INTO `t_permission` (`id`, `name`, `pid`, `url`, `icon`) VALUES
 	(1, '系统菜单', 0, '/main', 'glyphicon glyphicon-th-list'),
 	(2, '控制面板', 1, '/main', NULL),
 	(3, '权限管理', 1, '#', NULL),
-	(4, '用户维护', 3, '/User/Index', NULL),
-	(5, '权限维护', 3, '/role/index', NULL),
-	(6, '许可维护', 3, '/permission/index', NULL);
+	(4, '用户维护', 3, '/User/Index;/User/PageQuery', NULL),
+	(5, '权限维护', 3, '/role/index;/role/pageQuery', NULL),
+	(6, '许可维护', 3, '/permission/index;/permission/loadData', NULL),
+	(16, '批量删除', 4, '/User/Deletes', NULL),
+	(17, '删除', 4, '/User/Delete', NULL),
+	(18, '新增', 4, '/User/Add', NULL);
 /*!40000 ALTER TABLE `t_permission` ENABLE KEYS */;
 
 -- 导出  表 test.t_role 结构
@@ -11860,9 +11863,9 @@ CREATE TABLE IF NOT EXISTS `t_role_permission` (
   `roleid` int(11) NOT NULL DEFAULT 0,
   `permissionid` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.t_role_permission 的数据：~0 rows (大约)
+-- 正在导出表  test.t_role_permission 的数据：~12 rows (大约)
 /*!40000 ALTER TABLE `t_role_permission` DISABLE KEYS */;
 INSERT INTO `t_role_permission` (`id`, `roleid`, `permissionid`) VALUES
 	(1, 1, 1),
@@ -11870,7 +11873,10 @@ INSERT INTO `t_role_permission` (`id`, `roleid`, `permissionid`) VALUES
 	(3, 1, 3),
 	(4, 1, 4),
 	(5, 1, 5),
-	(6, 1, 6);
+	(6, 1, 6),
+	(10, 1, 16),
+	(11, 1, 17),
+	(12, 1, 18);
 /*!40000 ALTER TABLE `t_role_permission` ENABLE KEYS */;
 
 -- 导出  表 test.t_user 结构
@@ -11882,23 +11888,13 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   `userpswd` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- 正在导出表  test.t_user 的数据：~12 rows (大约)
+-- 正在导出表  test.t_user 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
 INSERT INTO `t_user` (`id`, `username`, `createtime`, `loginacct`, `userpswd`, `email`) VALUES
 	(1, 'keng', '2018-10-11 14:31:09', 'keng', '123456', 'test.com'),
-	(2, 'test1', '2018-10-11 14:31:09', 'test1', 'test1', 'test1'),
-	(3, 'test1', '2018-10-11 14:31:09', 'test1', 'test1', 'test1'),
-	(4, 'test2', '2018-10-11 14:31:09', 'test2', 'test2', 'test2'),
-	(5, 'test3', '2018-10-11 14:31:09', 'test3', 'test3', 'test3'),
-	(6, 'test4', '2018-10-11 14:31:09', 'test4', 'test4', 'test4'),
-	(7, 'test5', '2018-10-11 14:31:09', 'test5', 'test5', 'test5'),
-	(8, 'test6', '2018-10-11 14:31:09', 'test6', 'test6', 'test6'),
-	(9, 'test7', '2018-10-11 14:31:09', 'test7', 'test7', 'test7'),
-	(10, 'test8', '2018-10-11 14:31:09', 'test8', 'test8', 'test8'),
-	(11, 'test9', '2018-10-11 14:31:09', 'test9', 'test9', 'test9'),
-	(12, 'test10', '2018-10-11 14:31:09', 'test10', 'test10', 'test10');
+	(13, 'admin', '2018-10-19 11:33:00', 'admin', 'admin', NULL);
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 
 -- 导出  表 test.t_user_role 结构

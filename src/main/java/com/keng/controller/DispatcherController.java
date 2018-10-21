@@ -56,7 +56,10 @@ public class DispatcherController {
             for (Permission permission : permissions){
                 permissionMap.put(permission.getId(),permission);
                 if (permission.getUrl()!=null&&!"".equals(permission.getUrl())){
-                    uriSet.add(session.getServletContext().getContextPath() + permission.getUrl());
+                    String[] urls = permission.getUrl().split(";");
+                    for (String url : urls){
+                        uriSet.add(session.getServletContext().getContextPath() + url);
+                    }
                 }
             }
             session.setAttribute("authUriSet",uriSet);

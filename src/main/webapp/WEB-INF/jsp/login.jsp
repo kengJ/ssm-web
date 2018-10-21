@@ -6,26 +6,26 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
-          <div><a class="navbar-brand" href="index.html" style="font-size:32px;">管理平台</a></div>
+          <a class="navbar-brand" href="#" style="font-size: 18pt">管理平台</a>
         </div>
       </div>
     </nav>
 
     <div class="container">
       <h1 style="color:red">${param.errorMsg}</h1>
-      <div class="panel panel-default" style="width:600px;margin:0 auto;margin-top: 100px;">
+      <div class="panel panel-default" style="width:400px;margin:0 auto;margin-top: 200px;">
 		  <div class="panel-heading">用户登录</div>
 		  <div class="panel-body">
 		    <form id="loginForm" action="doLogin" method="post" class="form-signin" role="form">
         <!-- <h2 class="form-signin-heading"><i class="glyphicon glyphicon-user"></i> 用户登录</h2> -->
-		  <div class="form-group has-success has-feedback">
+		  <div class="form-group has-feedback">
 			<input type="text" class="form-control input-sm" id="loginacct" name="loginacct" placeholder="请输入登录账号" autofocus>
 			<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		  </div>
-		  <div class="form-group has-success has-feedback">
-			<input type="text" class="form-control input-sm" id="userpswd" name="userpswd" placeholder="请输入登录密码" style="margin-top:10px;">
+		  <div class="form-group has-feedback">
+			<input type="password" class="form-control input-sm" id="userpswd" name="userpswd" placeholder="请输入登录密码" style="margin-top:10px;">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		  </div>
 		  <!--<div class="form-group has-success has-feedback">
@@ -38,15 +38,8 @@
           <label>
             <input type="checkbox" value="remember-me"> 记住我
           </label>
-          <br>
-          <label>
-            忘记密码
-          </label>
-          <label style="float:right">
-            <a href="reg.html">我要注册</a>
-          </label>
         </div>
-        <a class="btn btn-lg btn-success btn-block" onclick="dologin()" > 登录</a>
+        <a class="btn btn-lg btn-primary btn-block" onclick="dologin()" > 登录</a>
       </form>
 		  </div>
 	  </div>
@@ -104,6 +97,11 @@
         	}
         });
     }
+    $(document).keyup(function(event){
+        if(event.keyCode ==13){
+            dologin();
+        }
+    });
     </script>
   </body>
 </html>

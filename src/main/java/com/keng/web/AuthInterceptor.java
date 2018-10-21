@@ -44,7 +44,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         Set<String> uriSet = new HashSet<>();
         for (Permission permission : permissions){
             if (permission.getUrl() != null && !"".equals(permission.getUrl())){
-                uriSet.add(path + permission.getUrl());
+                String[] urls = permission.getUrl().split(";");
+                for (String url : urls){
+                    uriSet.add(path + url);
+                }
             }
         }
         if (uriSet.contains(uri)){

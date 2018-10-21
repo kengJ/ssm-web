@@ -1,10 +1,11 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <ul style="padding-left:0px;" class="list-group">
     <c:forEach items="${rootPermission.children}" var="permission">
         <c:if test="${empty permission.children}">
 			<li class="list-group-item tree-closed title" >
-				<a href="${APP_PATH}${permission.url}"><i class="${permission.icon}"></i> ${permission.name}</a> 
+				<a href="${APP_PATH}${fn:split(permission.url, ";")[0]}"><i class="${permission.icon}"></i> ${permission.name}</a>
 			</li>        
         </c:if>
         <c:if test="${not empty permission.children}">
@@ -13,7 +14,7 @@
 				<ul style="margin-top:10px;display:none;">
 					<c:forEach items="${permission.children}" var="child">
 					<li style="height:30px;">
-						<a href="${APP_PATH}${child.url}"><i class="${child.icon}"></i> ${child.name}</a> 
+						<a href="${APP_PATH}${fn:split(child.url, ";")[0]}"><i class="${child.icon}"></i> ${child.name}</a>
 					</li>
 					</c:forEach>
 				</ul>

@@ -7,7 +7,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 select * from t_user 
 <where>
 <if test="queryText != null">
- and queryText like concat('%',#{queryText},'%')
+ loginacct like concat('%',#{queryText},'%')
 </if>
 </where>
 order by createtime desc
@@ -17,7 +17,7 @@ limit #{start} , #{size}
 select count(*) from t_user
 <where>
 <if test="queryText != null">
- and queryText like concat('%',#{queryText},'%')
+ and loginacct like concat('%',#{queryText},'%')
 </if>
 </where>
 </select>

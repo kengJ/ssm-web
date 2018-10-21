@@ -117,35 +117,40 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value="/PageQuery")
-    public Object pageQuery(
-            @RequestParam(required=false,defaultValue="1")Integer pageno ,
-            @RequestParam(required=false,defaultValue="10")Integer pagesize ) {
+    public Object pageQuery( String queryText, Integer pageno, Integer pagesize ) {
+
         AjaxResult result = new AjaxResult();
+
         try {
 
-            Map<String, Object> map = new HashMap<String, Object>(2);
+            // 分页查询
+            Map<String, Object> map = new HashMap<String, Object>();
             map.put("start", (pageno-1)*pagesize);
             map.put("size", pagesize);
-            List<User> users = userService.pageQueryData(map);
+            map.put("queryText", queryText);
 
-            int totalsize = userService.pageQueryCount(map);
-
-            int totalno ;
-            if( totalsize % pagesize == 0 ) {
+            List<User> users = userService.pageQueryData( map );
+            // 当前页码
+            // 总的数据条数
+            int totalsize = userService.pageQueryCount( map );
+            // 最大页码（总页码）
+            int totalno = 0;
+            if ( totalsize % pagesize == 0 ) {
                 totalno = totalsize / pagesize;
-            }else {
+            } else {
                 totalno = totalsize / pagesize + 1;
             }
 
+            // 分页对象
             Page<User> userPage = new Page<User>();
-            userPage.setPageno(pageno);
+            userPage.setDatas(users);
             userPage.setTotalno(totalno);
             userPage.setTotalsize(totalsize);
-            userPage.setDatas(users);
+            userPage.setPageno(pageno);
 
             result.setData(userPage);
             result.setSuccess(true);
-        } catch (Exception e) {
+        } catch ( Exception e ) {
             e.printStackTrace();
             result.setSuccess(false);
         }
