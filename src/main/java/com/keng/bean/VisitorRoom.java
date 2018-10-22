@@ -1,5 +1,7 @@
 package com.keng.bean;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * FileName: VisitorRoom
  * 访客系统门设置模型
@@ -11,6 +13,7 @@ package com.keng.bean;
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  **/
+
 public class VisitorRoom {
     private Integer tablerecid;
     private String userno ;

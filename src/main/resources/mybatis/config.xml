@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--
+    <properties resource="" url=""></properties>
+    引入资源
+    resource 引入文件资源
+    url 引入网络资源
+    -->
+    <!-- 设置项 -->
+    <settings>
+        <!-- javabean 驼峰命名规范 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!-- 别名处理器 -->
     <typeAliases>
-        
+        <!-- 为某个类型取别名 别名不区分大小写  可使用@Alias()定义别名-->
+        <typeAlias type="com.keng.bean.City" alias="city"/>
+        <!-- 批量别名 -->
+        <package name="com.keng.model"/>
     </typeAliases>
+    <!-- 数据库厂商标识定义 配合mapping文件中对每条sql指定databaseid值进行绑定数据库厂商 -->
+    <databaseIdProvider type="DB_VENDOR" >
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle"/>
+        <property name="SQL_Server" value="sqlserver"/>
+    </databaseIdProvider>
+
 </configuration>

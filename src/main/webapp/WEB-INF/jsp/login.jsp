@@ -39,7 +39,7 @@
             <input type="checkbox" value="remember-me"> 记住我
           </label>
         </div>
-        <a class="btn btn-lg btn-primary btn-block" onclick="dologin()" > 登录</a>
+        <a class="btn btn-sm btn-primary btn-block" onclick="dologin()" > 登录</a>
       </form>
 		  </div>
 	  </div>
