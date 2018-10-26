@@ -21,7 +21,6 @@ public interface ExcelLogDao {
      * @param id id
      * @return ExcelLog
      */
-    @Select("select * from t_excellog where ifnull(useflag,'0')=0 and date(date)=date(curdate()) and id = #{id}")
     ExcelLog findExcelLogAndNoUse(String id);
 
     /**
